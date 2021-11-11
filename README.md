@@ -6,6 +6,8 @@ With a debounced function the promise returned by the function is lost so we can
 
 ## With await
 
+[src/await.js](./src/await.js)
+
 ```sh
 node src/await.js
 ```
@@ -22,6 +24,8 @@ PLAIN: 3.003s
 
 ---
 
+[src/await-fixed.js](./src/await-fixed.js)
+
 ```sh
 node src/await-fixed.js
 ```
@@ -35,6 +39,8 @@ DEBOUNCE: 3.109s
 ```
 
 ## With `.then()`
+
+[src/then.js](./src/then.js)
 
 ```sh
 node src/then.js
@@ -54,6 +60,8 @@ TypeError: Cannot read property 'then' of undefined
 
 ---
 
+[src/then-fixed.js](./src/then-fixed.js)
+
 ```sh
 node src/then-fixed.js
 ```
@@ -62,4 +70,22 @@ node src/then-fixed.js
 Initialised
 PLAIN: 3.004s
 DEBOUNCE: 3.106s
+```
+
+## continuation-passing style
+
+A way of doing this with `_.debounce` is to avoid the usage of promises and return to continuation-passing style. That is the use of callbacks.
+
+Avoiding promises also mean `async`/`await` can't be used.
+
+[src/cps.js](./src/cps.js)
+
+```sh
+node src/cps.js
+```
+
+```
+Initialised
+PLAIN: 3.004s
+DEBOUNCE: 3.104s
 ```
